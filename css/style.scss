@@ -1,0 +1,578 @@
+@import "varibales";
+@import "mixin";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+li,
+ol {
+  list-style-type: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+body {
+  overflow-x: hidden;
+}
+// ================== banner and nav part start ==================
+#banner {
+  background: url(../img/banner1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 130vh;
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+  }
+  nav {
+    background: $main-color;
+    width: 100%;
+    border-bottom-right-radius: 80px;
+    padding: 10px;
+    .main-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background-color: #103f09;
+        text-align: center;
+        line-height: 60px;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: $bgOne;
+        font-weight: 500;
+      }
+      ul {
+        display: flex;
+        li {
+          margin-left: 7px;
+          margin-top: 12px;
+          a {
+            font-size: 18px;
+            font-weight: 500;
+            color: #103f09;
+            text-transform: uppercase;
+            padding: 7px;
+            transition: 0.5s;
+            position: relative;
+            cursor: pointer;
+            &:hover {
+              color: #f5f6fa;
+            }
+            &::after {
+              position: absolute;
+              content: "";
+              bottom: 0;
+              left: 0;
+              height: 4px;
+              width: 0;
+              background: #f5f6fa;
+              transition: 0.4s ease-in-out;
+              border-radius: 10px;
+              transition: 0.4s ease-in-out;
+            }
+            &:hover::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .banner-heading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-size: 130px;
+      color: $white;
+      font-weight: 700;
+      margin-top: -90px;
+      letter-spacing: -15px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    h3 {
+      font-size: 30px;
+      color: $white;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-top: -10px;
+    }
+  }
+  .banner-text2 {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    h4 {
+      font-size: 50px;
+      font-weight: 900;
+      color: $white;
+      letter-spacing: 1px;
+      position: relative;
+      padding-bottom: 10px;
+      span {
+        color: $main-color !important;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 2px;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        height: 5px;
+        width: 35%;
+        background: $main-color;
+        border-radius: 20px;
+        left: -20%;
+        bottom: 0;
+      }
+    }
+  }
+}
+.prev {
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  z-index: 20;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  &:hover {
+    border: 3px solid $white;
+  }
+  i {
+    color: $white;
+    font-size: 30px;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    height: 80%;
+    width: 80%;
+    border: 3px solid $white;
+    border-radius: 50%;
+  }
+  &:hover:after {
+    border-color: $main-color;
+  }
+}
+.next {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  background: red;
+  z-index: 20;
+}
+.prev2 {
+  top: 50%;
+  left: 5%;
+}
+.next2 {
+  top: 50%;
+  right: 5%;
+}
+// ============== banner and nav style end =================//
+
+// ============== text style starts =================//
+#text {
+  .text-box {
+    position: relative;
+    background: #fff;
+    padding: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    margin-top: -30%;
+    z-index: 3;
+  }
+}
+// ============== text style end =================//
+
+// ============== services style starts =================//
+#services {
+  position: relative;
+  .services-heading {
+    h2 {
+      font-size: 55px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: $heading-color;
+      position: relative;
+      span {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 2px;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -7%;
+        left: 25%;
+        width: 50%;
+        height: 4px;
+        background: $heading-color;
+        border-radius: 10px;
+      }
+    }
+    p {
+      font-size: 16px;
+      color: #191919;
+      font-weight: 500;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+  }
+  .services-img1 {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 120px;
+  }
+  .services-img2 {
+    position: absolute;
+    top: 0;
+    right: -1%;
+    width: 120px;
+    z-index: 10;
+    transform: rotate(160deg);
+  }
+  .services-slider {
+    background: $main-color;
+    padding: 25px 60px;
+    .slider-img {
+      border: 15px solid #fff;
+      margin-top: -80px;
+      height: 420px;
+    }
+    h3 {
+      display: inline-block;
+      padding: 2px 30px;
+      border: 2px solid #ffd739;
+      font-size: 40px;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h4 {
+      font-size: 40px;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    p {
+      font-size: 16px;
+      color: #fff;
+    }
+    h5 {
+      font-size: 25px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      margin: 0;
+      padding: 0;
+    }
+    h6 {
+      font-size: 18px;
+      color: $heading-color;
+      margin-top: 5px;
+    }
+    button {
+      width: 180px;
+      height: 50px;
+      background: none;
+      outline: none;
+      border: none;
+      border: 1px solid #fff;
+      border-radius: 30px;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #fff;
+      transition: 0.5s ease-in-out;
+      &:hover {
+        background: #191919;
+        border: 1px solid #191919;
+      }
+    }
+  }
+}
+.slick-dots {
+  text-align: center;
+  margin: -20px;
+}
+.slick-dots > li {
+  display: inline-block;
+  height: 30px;
+  width: 40px;
+  background: $main-color;
+  line-height: 30px;
+  color: $white;
+  font-weight: 800;
+}
+.slick-dots > .slick-active {
+  background: $heading-color;
+  font-weight: bold;
+}
+// ============== services style end =================//
+
+// ============== counter style starts =================//
+#counter {
+  background: $main-color;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 50px;
+  .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: 50px;
+      color: #fff;
+      margin-right: 15px;
+    }
+    h2 {
+      font-size: 35px;
+      color: $heading-color;
+      font-weight: 800;
+    }
+    h6 {
+      font-size: 20px;
+      color: $heading-color;
+      font-weight: 500;
+    }
+  }
+}
+// ============== counter style end =================//
+
+// ============== navbar style starts =================//
+#projects {
+  background: url(../img/projects.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 50px 0;
+  h2 {
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+    position: relative;
+    position: relative;
+    padding-bottom: 10px;
+    span {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 2px;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: -20%;
+      height: 5px;
+      width: 100%;
+      background: $heading-color;
+      border-radius: 10px;
+    }
+  }
+  .projduct-card {
+    background: #fff;
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-radius: 7px;
+    margin-right: 20px;
+    h4 {
+      font-size: 25px;
+      color: $heading-color;
+      padding: 20px 0;
+    }
+    img {
+      width: 100%;
+      height: 200px;
+    }
+    button {
+      background: none;
+      outline: none;
+      border: none;
+      background: $main-color;
+      padding: 8px 19px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 500;
+      margin-top: 15px;
+    }
+  }
+  .slick-slider {
+    padding: 0 20px;
+    margin: 0 20px;
+  }
+}
+
+// ============== navbar style end =================//
+
+// ============== testimonials style starts =================//
+#testimonials {
+  h2 {
+    font-size: 55px;
+    text-transform: uppercase;
+    color: $heading-color;
+    letter-spacing: 2px;
+    font-weight: 700;
+    padding-bottom: 12px;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 35%;
+      height: 4px;
+      width: 30%;
+      background: $heading-color;
+      border-radius: 20px;
+    }
+  }
+  p {
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: 500;
+    color: $heading-color;
+  }
+  .testimonials-card {
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 5px;
+      width: 25%;
+      background: $heading-color;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 25%;
+      width: 5px;
+      background: $heading-color;
+    }
+    h5 {
+      font-size: 16px;
+      font-weight: 400;
+      padding: 35px 0;
+    }
+    .customal-img {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      border: 2px solid $heading-color;
+      text-align: center;
+      line-height: 61px;
+      margin-right: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 85%;
+        width: 85%;
+        border-radius: 50%;
+      }
+    }
+    h4 {
+      font-size: 22px;
+      color: $heading-color;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-top: 10px;
+    }
+    h6 {
+      font-size: 16px;
+      color: #162447;
+    }
+  }
+  .testimonials-card2 {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0 25px 29px 25px;
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      right: 0;
+      height: 5px;
+      width: 25%;
+      background: $heading-color;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      right: 0;
+      width: 5px;
+      height: 25%;
+      background: $heading-color;
+    }
+  }
+  .slick-slide {
+    margin: 30px 15px;
+  }
+}
+// ==============testimonials style end =================//
+
+// ============== footer style starts =================//
+#footer {
+  background: $heading-color;
+  padding: 15px;
+  text-align: center;
+  h5 {
+    font-size: 18px;
+    color: white;
+    margin-top: 15px;
+    font-weight: 400;
+  }
+  h6 {
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+  }
+  img {
+    width: 50px;
+    margin-top: -30px;
+  }
+}
+// ============== footer style end =================//
